@@ -23,22 +23,22 @@ export class DivmainComponent implements OnInit {
   Desenhabola(){
     //this.aux= random;
 
-    if(){
+    // if(){
 
-    }else if(){
+    // }else if(){
 
-    }else if(){
+    // }else if(){
 
-    }else if(){
+    // }else if(){
 
-    }
+    // }
 
-    const x=;
-    const y=;
+    // const x=;
+    // const y=;
 
-    Boolean.setattribute();
+    // Boolean.setattribute();
 
-    document.body.appendChild();
+    // document.body.appendChild();
     this.tempoinicial=Date.now();
   }
 
@@ -46,9 +46,9 @@ export class DivmainComponent implements OnInit {
     this.Desenhabola();
   }
 
-  eventoDeTecla(event){
+  // eventoDeTecla(event){
 
-  }
+  // }
 
   imprimeTempo(){
 

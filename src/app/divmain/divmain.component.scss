@@ -1,6 +1,7 @@
 #divmain{
   background-color: blueviolet;
-  width: 30%;
+  width: 70%;
+  height: 700px;
   margin: 0 auto;
 }
 
@@ -36,3 +37,16 @@
 
 }
 
+#divmenu{
+  background-color: rosybrown;
+  width: 20%;
+  height: 50%;
+  display: inline-block;
+}
+
+#divjogo{
+  background-color: aqua;
+  height: 700px;
+  width: 80%;
+  display: inline-block;
+}
