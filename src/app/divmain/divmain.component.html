@@ -3,23 +3,23 @@
   <div id="divmenu">
 
      <div id="diviniciarjogo">
-      <button>Iniciar jogo</button>
+      <button onkeyup="eventoDeTecla(event)" click="inicioDeJogo()">Iniciar jogo</button>
     </div>
 
     <div>
       <div id="divtemporeacao">
-        <label>Tempo de Reação: </label>
+        <label id="temporeacao">Tempo de Reação: </label>
       </div>
       <div id="divtempomedio">
-        <label>Tempo médio: </label>
+        <label id="tempomedio">Tempo médio: </label>
       </div>
       <div id="divacertos">
-        <label>Acertos: </label>
+        <label id="acertos">Acertos: </label>
       </div>
     </div> 
 
      <div id="divreiniciar">
-      <button>Reiniciar jogo</button>
+      <button onclick="RecarregaBola()">Reiniciar jogo</button>
     </div> 
 
   </div>
