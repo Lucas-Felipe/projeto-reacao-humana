@@ -18,7 +18,7 @@ export class DivmainComponent implements OnInit {
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent): void {
-    if (this.rounds!>0) {
+    if (this.rounds!>0 && this.rounds!<10) {
       this.tempofinal=Date.now();
       this.tecla=event.keyCode;
 
@@ -30,8 +30,8 @@ export class DivmainComponent implements OnInit {
       this.imprimeTempo();
       this.Desenhabola();
 
-    }else if(this.rounds!<10){
-
+    }else if(this.rounds!>=10){
+      this.Desenhabola();
     }
   }
 
