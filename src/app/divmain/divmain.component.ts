@@ -1,5 +1,5 @@
 import { createOfflineCompileUrlResolver } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import {ViewChild, ElementRef} from '@angular/core';
 @Component({
   selector: 'app-divmain',
@@ -13,6 +13,18 @@ export class DivmainComponent implements OnInit {
   tempofinal?:number;
   acertos?:number;
   tempototal?:number;
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent): void {
+    this.tecla=event.keyCode;
+    if (this.tecla==this.aux) {
+      this.acertos=this.acertos!+1;
+      this.tempofinal=Date.now();
+      this.AtualizaTempo();
+    }else
+      this.RecarregaBola();
+
+  }
 
   constructor() { }
 
@@ -93,25 +105,15 @@ export class DivmainComponent implements OnInit {
     this.Desenhabola();
   }
 
-  eventoDeTecla(event:any){
-    this.tecla=event.keyCode;
-    if (this.tecla==this.aux) {
-      this.acertos=this.acertos!+1;
-      this.tempofinal=Date.now();
-      this.AtualizaTempo();
-    }else
-      this.RecarregaBola();
-  }
-
   imprimeTempo(tempo:any){
     this.tempototal=this.tempototal+tempo;
-    document.getElementById("temporeacao")!.innerHTML=tempo;
-    document.getElementById("tempomedio")!.innerHTML=((this.tempototal!/this.acertos!)as unknown)as string;
+    document.getElementById("temporeacao")!.innerHTML="Tempo de Reação: "+tempo;
+    document.getElementById("tempomedio")!.innerHTML="Tempo médio: "+((this.tempototal!/this.acertos!)as unknown)as string;
   }
 
   AtualizaTempo(){
     var tempo=(this.tempofinal!-this.tempoinicial!)/1000;
-    document.getElementById("acertos")!.innerHTML=(this.acertos! as unknown)as string;
+    document.getElementById("acertos")!.innerHTML="Acertos: "+(this.acertos! as unknown)as string;
     this.imprimeTempo(tempo);
   }
 
