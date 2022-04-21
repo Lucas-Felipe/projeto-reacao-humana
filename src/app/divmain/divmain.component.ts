@@ -1,6 +1,6 @@
 import { createOfflineCompileUrlResolver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-
+import {ViewChild, ElementRef} from '@angular/core';
 @Component({
   selector: 'app-divmain',
   templateUrl: './divmain.component.html',
@@ -27,43 +27,69 @@ export class DivmainComponent implements OnInit {
 
   Desenhabola(){
     this.aux= Math.floor(Math.random()*4);
-
+    const x=Math.floor(Math.random()*500);
+    const y=Math.floor(Math.random()*400);
+    const circulo = document.createElement('div');
     if(this.aux==0){
-      const circulo=document.createElement('div');
-      circulo.setAttribute("id", "circulo1");
+
+      circulo.setAttribute("id", "circulo"+this.aux);
       circulo.setAttribute("class","circuloamarelo");
+      circulo.style.left = `${x}px`;
+      circulo.style.top = `${y}px`;
+      circulo.style.margin = "100px";
+      circulo.style.backgroundColor = "yellow";
+      circulo.style.width = "60px";
+      circulo.style.height= "60px";
+      circulo.style.borderRadius= "30px";
       this.aux=37;
     }else if(this.aux==1){
-      const circulo=document.createElement('div');
-      circulo.setAttribute("id", "circulo1");
-      circulo.setAttribute("class","circuloazul");
+
+      circulo.setAttribute("id", "circulo"+this.aux);
+      circulo.setAttribute("class","circulolaranja");
+      circulo.style.left = `${x}px`;
+      circulo.style.top = `${y}px`;
+      circulo.style.margin = "100px";
+      circulo.style.backgroundColor = "orange";
+      circulo.style.width = "60px";
+      circulo.style.height= "60px";
+      circulo.style.borderRadius= "30px";
       this.aux=38;
     }else if(this.aux==2){
-      const circulo=document.createElement('div');
-      circulo.setAttribute("id", "circulo1");
+
+      circulo.setAttribute("id", "circulo"+this.aux);
       circulo.setAttribute("class","circuloverde");
+      circulo.style.left = `${x}px`;
+      circulo.style.top = `${y}px`;
+      circulo.style.margin = "100px";
+      circulo.style.backgroundColor = "green";
+      circulo.style.width = "60px";
+      circulo.style.height= "60px";
+      circulo.style.borderRadius= "30px";
       this.aux=39;
     }else if(this.aux==3){
-      const circulo=document.createElement('div');
-      circulo.setAttribute("id", "circulo1");
+
+      circulo.setAttribute("id", "circulo"+this.aux);
       circulo.setAttribute("class","circulovermelho");
+      circulo.style.left = `${x}px`;
+      circulo.style.top = `${y}px`;
+      circulo.style.margin = "100px";
+      circulo.style.backgroundColor = "red";
+      circulo.style.width = "60px";
+      circulo.style.height= "60px";
+      circulo.style.borderRadius= "30px";
       this.aux=40;
     }
 
-    const x=Math.floor(Math.random()*500);
-    const y=Math.floor(Math.random()*400);
+    const documento = document.getElementById("divjogo");
+    documento?.appendChild(circulo);
+    document.getElementById("divjogo")?.appendChild(circulo);
 
-    const circulo=document.createElement("div");
-    circulo.setAttribute("style",
-      "left:"+ x + "px;"+ "top:"+y+"px;"+"margin: 100px"
-    );
-
-    document.getElementById("divjogo")!.appendChild(circulo);
     this.tempoinicial=Date.now();
 
   }
 
   inicioDeJogo(){
+
     this.Desenhabola();
   }
 
