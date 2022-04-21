@@ -1,5 +1,8 @@
 #divmain{
-  background-color: blueviolet;
+  // background-color: blueviolet;
+  border-style: solid;
+  border-width: 1%;
+  border-color: black;
   width: 70%;
   height: 600px;
   margin: 0 auto;
@@ -38,7 +41,10 @@
 }
 
 #divmenu{
-  background-color: rosybrown;
+  // background-color:ivory;
+  border-style: solid;
+  border-width: 1%;
+  border-color: black;
   width: 20%;
   height: 95%;
   float: left;
@@ -46,7 +52,10 @@
 }
 
 #divjogo{
-  background-color: blue;
+  // background-color:cornsilk;
+  border-style: solid;
+  border-width: 1%;
+  border-color: black;
   width: 75%;
   height: 95%;
   margin-left: 2%;
@@ -70,6 +79,16 @@
 }
 
 #divacertos{
+  margin-bottom: 2%;
+  margin-left: 5%;
+}
+
+#diverros{
+  margin-bottom: 2%;
+  margin-left: 5%;
+}
+
+#divscore{
   margin-bottom: 100%;
   margin-left: 5%;
 }
