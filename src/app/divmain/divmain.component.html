@@ -2,8 +2,12 @@
 
   <div id="divmenu">
 
-     <div id="diviniciarjogo">
+    <div id="diviniciarjogo">
       <button (click)="inicioDeJogo()">Iniciar jogo</button>
+    </div>
+
+    <div id="divround">
+      <label>Round {{rounds}}</label>
     </div>
 
     <div>
@@ -24,8 +28,8 @@
       </div>
     </div>
 
-     <div id="divreiniciar">
-      <button onclick="RecarregaBola()">Reiniciar jogo</button>
+    <div id="divreiniciar">
+      <button (click)="ResetarJogo()">Reiniciar jogo</button>
     </div>
 
   </div>
