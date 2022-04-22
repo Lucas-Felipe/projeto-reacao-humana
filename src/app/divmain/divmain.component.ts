@@ -15,11 +15,13 @@ export class DivmainComponent implements OnInit {
   erros?:number;
   score?:number;
   rounds?:number;
+  pathImage?:string;
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent): void {
-    if (this.rounds!>0 && this.rounds!<10) {
+    if (this.rounds!>0 && this.rounds!<=10) {
       this.tempofinal=Date.now();
+      this.rounds!+=1;
       this.tecla=event.keyCode;
 
       if (this.tecla==this.aux){
@@ -30,7 +32,7 @@ export class DivmainComponent implements OnInit {
       this.imprimeTempo();
       this.Desenhabola();
 
-    }else if(this.rounds!>=10){
+    }else if(this.rounds!>10){
       this.Desenhabola();
     }
   }
@@ -39,11 +41,17 @@ export class DivmainComponent implements OnInit {
 
   ngOnInit(): void {
     this.Resetarvariaveis();
+    this.pathImage='./../../assets/arrows.png';
+  }
+
+  inicioDeJogo(){
+    this.rounds!+=1;
+    this.Desenhabola();
   }
 
   Desenhabola(){
     const documento = document.getElementById("divjogo");
-    if (this.rounds!>=10) {
+    if (this.rounds!>10) {
       const fimDeJogo = document.createElement('div');
       fimDeJogo.innerText= "Fim de Jogo! Seus resultados estão ao lado! "+
       "\nPara jogar novamente, clique em 'Reiniciar jogo'";
@@ -57,6 +65,7 @@ export class DivmainComponent implements OnInit {
       fimDeJogo.style.borderStyle="solid";
 
       documento?.replaceChild(fimDeJogo, documento.children[0]);
+      this.Resetarvariaveis();
     }else{
       this.aux= Math.floor(Math.random()*4);
       const x=Math.floor(Math.random()*500);
@@ -115,15 +124,8 @@ export class DivmainComponent implements OnInit {
         documento?.appendChild(circulo);
       }
 
-
-      this.rounds!+=1;
-
       this.tempoinicial=Date.now();
     }
-  }
-
-  inicioDeJogo(){
-    this.Desenhabola();
   }
 
   imprimeTempo():void{

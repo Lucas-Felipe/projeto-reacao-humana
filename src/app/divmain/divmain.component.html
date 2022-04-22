@@ -7,7 +7,7 @@
     </div>
 
     <div id="divround">
-      <label>Round {{rounds}}</label>
+      <label id="label" *ngIf="rounds!=0">Round {{rounds}}</label>
     </div>
 
     <div>
@@ -26,6 +26,10 @@
       <div id="divscore">
         <label id="score">Score: </label>
       </div>
+    </div>
+
+    <div id="divlegenda" class="lightbox">
+      <img id="arrows" [src]="pathImage" alt="arrows"/>
     </div>
 
     <div id="divreiniciar">
