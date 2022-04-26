@@ -1,5 +1,6 @@
 
 import { Component, HostListener, OnInit } from '@angular/core';
+// import { interval} from 'rxjs';
 @Component({
   selector: 'app-divmain',
   templateUrl: './divmain.component.html',
@@ -16,8 +17,32 @@ export class DivmainComponent implements OnInit {
   score?:number;
   rounds?:number;
   pathImage?:string;
+  // time: number = 0;
+  // interval:any;
 
-  @HostListener('document:keydown', ['$event'])
+  // startTimer() {
+  //   this.interval = setInterval(() => {
+  //     if (this.time === 0) {
+  //       this.time++;
+  //     } else {
+  //       this.time++;
+  //     }
+  //     if (this.time==5) {
+  //       this.tempofinal=Date.now();
+  //       this.rounds!+=1;
+  //       this.erros=this.erros!+1;
+  //       this.pauseTimer();
+  //       this.time=0;
+  //       this.imprimeTempo();
+  //       this.Desenhabola();
+  //     }
+  //   }, 1000);
+  // }
+  // pauseTimer() {
+  //   clearInterval(this.interval);
+  // }
+
+  @HostListener('document:keydown', ['$event','wait'])
   handleKeyboardEvent(event: KeyboardEvent): void {
     if (this.rounds!>0 && this.rounds!<=10) {
       this.tempofinal=Date.now();
@@ -66,6 +91,7 @@ export class DivmainComponent implements OnInit {
 
       documento?.replaceChild(fimDeJogo, documento.children[0]);
       this.Resetarvariaveis();
+      // this.rounds=11;
     }else{
       this.aux= Math.floor(Math.random()*4);
       const x=Math.floor(Math.random()*500);
@@ -125,6 +151,7 @@ export class DivmainComponent implements OnInit {
       }
 
       this.tempoinicial=Date.now();
+      // this.startTimer();
     }
   }
 
@@ -133,8 +160,8 @@ export class DivmainComponent implements OnInit {
     document.getElementById("temporeacao")!.innerHTML="Tempo de Reação: "+tempoDeReacao;
     this.tempototal=this.tempototal!+tempoDeReacao;
     this.acertos!=0 ?
-      document.getElementById("tempomedio")!.innerHTML="Tempo médio: "+((this.tempototal!/this.acertos!)as unknown)as string :
-      document.getElementById("tempomedio")!.innerHTML="Tempo médio: "+ 0;
+    document.getElementById("tempomedio")!.innerHTML="Tempo médio: "+((this.tempototal!/this.acertos!)as unknown)as string :
+    document.getElementById("tempomedio")!.innerHTML="Tempo médio: "+ 0;
     document.getElementById("acertos")!.innerHTML="Acertos: "+(this.acertos! as unknown)as string;
     document.getElementById("erros")!.innerHTML="Erros: "+(this.erros! as unknown)as string;
     document.getElementById("score")!.innerHTML="Score: "+((this.acertos!-this.erros!)as unknown)as string;
